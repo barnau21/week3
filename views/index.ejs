@@ -2,13 +2,16 @@
 
 <% include  partials/top-nav.ejs %>
 
-  <h1>Welcome to the <%= title %> page </h1>
+  <h1 id="welcome">Welcome to the <%= title %> page </h1>
 
 <%  if (title === 'Projects' ) { %>
   <% include  partials/projects.ejs %> <% 
 } %> 
  <%  if (title === 'Contact' ) { %>
   <% include  partials/contact.ejs %> <% 
+} %>
+<%  if (title === 'About' ) { %>
+  <% include  partials/about.ejs %> <% 
 } %>
 
 <!-- BOTTOM NAV-->
