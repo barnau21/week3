@@ -28,3 +28,152 @@ my_img_div {
     width: 50%;
     float: right;
 }
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-top: 20px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+
+  }
+
+#home_icon1 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;  
+  }
+
+  #home_icon2 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-top: 10px;
+  }
+
+  #home_icon3 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-top: 10px;
+  }
+
+  #home_icon4 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-top: 10px;
+  }
+
+
+#card1 {
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+ 
+}
+#card1:hover {
+    transform: scale(1.5);
+    transition: 1s;
+    z-index: 99;
+}
+#card2 {
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+ 
+}
+#card2:hover {
+    transform: scale(1.5);
+    transition: 1s;
+    z-index: 99;
+}
+#card3 {
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+ 
+}
+#card3:hover {
+    transform: scale(1.5);
+    transition: 1s;
+    z-index: 99;
+}
+#card4 {
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+ 
+}
+#card4:hover {
+    transform: scale(1.5);
+    transition: 1s;
+    z-index: 99;
+}
+
+.mission {
+    text-align: center;
+    margin-top: 10px;
+    font: italic 1.2em "Fira Sans", serif;
+    margin-bottom: 40px;
+}
+
+.copyright1 {
+    color:lavender;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+#contact-card{
+    margin-top: 20px;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+}
+#contact-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    top:-50px;
+}
+
+.accordion-button {
+    font: bolder 2em "Fira Sans", serif;
+    font-size: larger;
+}
+
+#about-me-card {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:5%;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+    border-width: 5px;
+    
+}
+
+#slide-img1{
+    max-width: 900px;
+    max-height: 800px;
+    margin: auto;
+}
+#slide-img2{
+    max-width: 900px;
+    max-height: 800px;
+    margin: auto;
+}
+#slide-img3{
+    max-width: 900px;
+    max-height: 800px;
+    margin: auto;
+}
+
+.services-banner {
+    text-align: center;
+    margin-top: 40px;
+}
+
+#resume-btn{
+    width:250px;
+    height:70px;
+    margin-top: 50px;
+    font-size: xx-large;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+

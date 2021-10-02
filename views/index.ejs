@@ -1,9 +1,14 @@
 <% include  partials/head.ejs %>
 
-<% include  partials/top-nav.ejs %>
+<%  if (title === 'About' || title === 'Contact' || title === 'Projects' || title ==='Services') { %>
+  <% include  partials/top-nav.ejs %>  <% 
+} %> 
 
-  <h1 id="welcome">Welcome to the <%= title %> page </h1>
+  
 
+  <%  if (title === 'Home' || title === './') { %>
+    <% include  partials/home.ejs %> <% 
+  } %> 
 <%  if (title === 'Projects' ) { %>
   <% include  partials/projects.ejs %> <% 
 } %> 
@@ -13,13 +18,12 @@
 <%  if (title === 'About' ) { %>
   <% include  partials/about.ejs %> <% 
 } %>
+<%  if (title === 'Services' ) { %>
+  <% include  partials/services.ejs %> <% 
+} %>
 
-<!-- BOTTOM NAV-->
-  <nav class="navbar fixed-bottom navbar-light bg-primary">
-    <div class="container-fluid">
-      <h5 style="color: azure;"> &copy; 2021 Copyright COMP229 - Adrian Dumitriu </h5>
-    </div>
-  </nav>
+<% include  partials/bottom-nav.ejs %>
+
 
   <!-- CSS Section-->
   <script src="/scripts/app.js"></script>
