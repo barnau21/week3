@@ -15,13 +15,17 @@ module.exports.displayContactList = (req, res, next) => {
         {
             console.log(contactList);
 
-            res.render('contact/list', {title: 'Contacts', ContactList: contactList});      
+            res.render('contact/list', 
+            {title: 'Contacts', 
+            ContactList: contactList, 
+            displayName: req.user ? req.user.displayName: ''});      
         }
     });
 }
 
 module.exports.displayAddPage = (req, res, next) => {
-    res.render('contact/add', {title: 'Add Contact'})          
+    res.render('contact/add', {title: 'Add Contact',
+    displayName: req.user ? req.user.displayName: ''})          
 }
 
 module.exports.processAddPage = (req, res, next) => {
@@ -60,7 +64,10 @@ module.exports.displayEditPage = (req, res, next) => {
         else
         {
             //show the edit view
-            res.render('contact/edit', {title: 'Edit Contact', contact: contactToEdit})
+            res.render('contact/edit', 
+            {title: 'Edit Contact', 
+            contact: contactToEdit, 
+            displayName: req.user ? req.user.displayName: ''})
         }
     });
 }
