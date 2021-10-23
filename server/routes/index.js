@@ -27,6 +27,12 @@ router.get('/login', indexController.displayLoginPage);
 /* POST Route for processing the LOGIN page */
 router.post('/login', indexController.processLoginPage);
 
+/* GET Route for displaying the REGISTER page */
+router.get('/register', indexController.displayRegisterPage);
+
+/* POST Route for processing the REGISTER page */
+router.post('/register', indexController.processRegisterPage);
+
 /* GET to perform User Logout */
 router.get('/logout', indexController.performLogout);
 

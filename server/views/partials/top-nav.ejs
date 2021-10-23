@@ -28,12 +28,12 @@
             <a class="nav-link" href="/Contact"> <i class="fas fa-2x fa-phone-square-alt"></i> Contact</a>
           </li>      
           
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/contact-list"> <i class="fas fa-2x fa-address-book"></i></i> Contact List</a>
+          </li>
 
           <% if(typeof displayName == 'string' && displayName) { %>
-            <li class="nav-item">
-              <a class="nav-link" href="/contact-list"> <i class="fas fa-2x fa-address-book"></i></i> Contact List</a>
-            </li> 
+             
             <li class="navbar-text"><i class="fas fa-large fa-user"></i> Welcome <% displayName %>!</li>
             <li class="nav-item"><a href="/logout" class="nav-link">
               <i class="fas fa-2x fa-sign-out-alt"></i> Logout</a></li>

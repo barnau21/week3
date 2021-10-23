@@ -2,6 +2,69 @@
 
 <%- include ../partials/top-nav.ejs %>
 
+<main class="container">
+    <!-- Message area -->
+    <% if(messages.length > 0) {%> 
+    <div class="alert danger">
+        <% message %>
+    </div>
+    <% } %>
+    
+    <div class="row">
+        <div class="offset-md-4 col-md-4">
+            <h1>Registration Form</h1>
+            <form method="POST" autocomplete="off">
+                <fieldset class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" 
+                    class="form-control" 
+                    name="username" 
+                    placeholder="Enter username" 
+                    id="username" 
+                    required 
+                    autofocus>
+                </fieldset>
+    
+                <fieldset class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" 
+                    class="form-control" 
+                    name="password" 
+                    placeholder="Enter password" 
+                    id="password" 
+                    required>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" 
+                    class="form-control" 
+                    name="email" 
+                    placeholder="Enter email" 
+                    id="email" 
+                    required>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="userName">User Name</label>
+                    <input type="userName" 
+                    class="form-control" 
+                    name="userName" 
+                    placeholder="Enter User Name" 
+                    id="userName" 
+                    required>
+                </fieldset>
+    
+                <fieldset class="form-group text-right">
+                    <input style="margin-top:10px" type="submit" class="btn btn-primary" value="Register">
+                    <a href="/">
+                    <input style="margin-top:10px" type="button" class="btn btn-danger" value="Cancel">
+                    </a>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    </main>
 
 
 
