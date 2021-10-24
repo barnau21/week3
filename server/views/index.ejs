@@ -1,4 +1,17 @@
+<!--
+File Name: views/index.ejs
+Student Name: Adrian Dumitriu
+Student ID: 300566849
+Date: October 24, 2021
+
+
+FILE THAT RENDERS ALL PAGES FROM THE MAIN NAVBAR 
+-->
+
+
 <% include  partials/head.ejs %>
+
+<!-- render main nav bar on all pages except the home page for a cleaner look-->
 
 <%  if (title === 'About' || title === 'Contact' || title === 'Projects' || title ==='Services') { %>
   <% include  partials/top-nav.ejs %>  <% 
@@ -28,8 +41,6 @@
 
 <% include  partials/bottom-nav.ejs %>
 
-
- 
 
 </body>
 </html>

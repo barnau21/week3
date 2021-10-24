@@ -1,27 +1,35 @@
-// Installed third party packages 
+/*  
+File Name: app.js
+Student Name: Adrian Dumitriu
+Student ID: 300566849
+Date: October 24, 2021
+*/
 
+// Installed third party packages 
 let createError = require('http-errors');
 let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
+let cors = require('cors');
 
 
-//module for authentication
-
+//installed modules for authentication
 let session = require('express-session');
 let passport = require('passport');
+let passportJWT = require('passport-jwt');
+let JWTStrategy = passportJWT.Strategy;
+let ExtractJWT = passportJWT.ExtractJwt;
 let passportLocal = require('passport-local');
 let localStrategy = passportLocal.Strategy;
 let flash = require('connect-flash');
 
 //database setup
-
 let mongoose = require('mongoose');
 let DB = require('./db');
 
 // point mongoose to the DB URI
-mongoose.connect(DB.URI, {useNewUrlParser: true});
+mongoose.connect(DB.URI, {useNewUrlParser: true, useUnifiedTopology: true});
 
 let mongoDB = mongoose.connection;
 mongoDB.on('error', console.error.bind(console, 'Connection error:'));
@@ -53,10 +61,10 @@ app.use(session({
   resave: false
 }));
 
-// setup flash
+// init flash
 app.use(flash());
 
-// setup passport
+// init passport
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -73,6 +81,23 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+let jwtOptions = {};
+jwtOptions.jwtFromRequest = ExtractJWT.fromAuthHeaderAsBearerToken();
+jwtOptions.secretOrKey = DB.Secret;
+
+let strategy = new JWTStrategy(jwtOptions, (jwt_payload, done) => {
+  User.findById(jwt_payload.id)
+    .then(user => {
+      return done(null, user);
+    })
+    .catch(err => {
+      return done(err, false);
+    });
+});
+
+passport.use(strategy);
+
+//routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/contact-list', contactRouter);

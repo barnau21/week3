@@ -1,3 +1,10 @@
+/*  
+File Name: routes/index.js
+Student Name: Adrian Dumitriu
+Student ID: 300566849
+Date: October 24, 2021
+*/
+
 let express = require('express');
 let router = express.Router();
 
@@ -21,16 +28,16 @@ router.get('/services', indexController.displayServicesPage);
 /* GET Contact Us page. */
 router.get('/contact', indexController.displayContactPage);
 
-/* GET Route for displaying the LOGIN page */
+/* GET Login page */
 router.get('/login', indexController.displayLoginPage);
 
-/* POST Route for processing the LOGIN page */
+/* POST Login page */
 router.post('/login', indexController.processLoginPage);
 
-/* GET Route for displaying the REGISTER page */
+/* GET Registration page */
 router.get('/register', indexController.displayRegisterPage);
 
-/* POST Route for processing the REGISTER page */
+/* POST Registration page */
 router.post('/register', indexController.processRegisterPage);
 
 /* GET to perform User Logout */

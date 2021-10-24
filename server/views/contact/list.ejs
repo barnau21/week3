@@ -1,5 +1,11 @@
-<%- include ../partials/head.ejs %>
+<!--
+File Name: views/contact/list.ejs
+Student Name: Adrian Dumitriu
+Student ID: 300566849
+Date: October 24, 2021
+-->
 
+<%- include ../partials/head.ejs %>
 <%- include ../partials/top-nav.ejs %>
   
 
@@ -21,7 +27,7 @@
                     <th class="text-center col-1"></th>
                 </tr>
 
-                <!-- Repeatable Template Row -->
+                <!-- Rows that render depending on the number of entires in the collection -->
 
                 <% for(let count = 0; count < ContactList.length; count++) { %>
                     <tr class="d-flex">
@@ -30,6 +36,8 @@
                         <td class="text-center col-2"><%= ContactList[count].position %></td>
                         <td class="text-center col-3"><%= ContactList[count].phone %></td>
                         <td class="text-center col-3"><%= ContactList[count].email %></td>
+
+                        <!-- edit and delete buttons for each contact-->
                         <td class="text-center col-1">
                             <a href="/contact-list/edit/<%= ContactList[count]._id %>" class="btn btn-primary btn-sm">
                             <i class="fas fa-pencil-alt"></i> Edit</a>
@@ -41,6 +49,8 @@
                     </tr>
                 <% } %>
             </table>
+
+            <!-- button for adding new contracts -->
             <a style="margin-top: 20px" href="/contact-list/add" class="btn btn-primary" role="button">
                 <i class="fas fa-plus-circle"></i> Add New Contact</a>
                 <br>

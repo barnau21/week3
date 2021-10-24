@@ -1,13 +1,23 @@
-<%- include ../partials/head.ejs %>
+<!--
+File Name: views/auth.login.ejs
+Student Name: Adrian Dumitriu
+Student ID: 300566849
+Date: October 24, 2021
 
+HTML AND EJS CODE FOR DISPLAYING THE LOGIN PAGE
+
+-->
+
+<%- include ../partials/head.ejs %>
 <%- include ../partials/top-nav.ejs %>
 
 <main class="container">
+
 <!-- Message area -->
-<% if(message.length > 0) {%> 
-<div class="alert danger">
-    <% message %>
-</div>
+<% if(messages.length > 0) {%> 
+    <div class="alert alert-danger">
+        <%= messages %>
+    </div>
 <% } %>
 
 <div class="row">
@@ -15,7 +25,7 @@
         <h1>Please Login</h1>
         <form method="POST" autocomplete="off">
             <fieldset class="form-group">
-                <label for="username">Username</label>
+                <label for="username">Username: </label>
                 <input type="text" 
                 class="form-control" 
                 name="username" 
@@ -26,15 +36,15 @@
             </fieldset>
 
             <fieldset class="form-group">
-                <label for="password">Password</label>
+                <label for="password">Password: </label>
                 <input type="password" 
                 class="form-control" 
                 name="password" 
                 placeholder="Enter password" 
                 id="password" 
                 required>
-                or
-                <a href="/register" class="">Register Here</a>
+                <!--or
+                <a href="/register" class="">Register</a>  REGISTRATION PAGE NOT REQUIRED FOR ASSIGNMENT-->
             </fieldset>
 
             
@@ -49,8 +59,5 @@
     </div>
 </div>
 </main>
-
-
-
 
 <%- include ../partials/bottom-nav.ejs %>  

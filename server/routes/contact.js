@@ -1,14 +1,22 @@
+/*  
+File Name: routes/contact.js
+Student Name: Adrian Dumitriu
+Student ID: 300566849
+Date: October 24, 2021
+*/
+
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 
+let jwt = require('jsonwebtoken');
+
 let passport = require('passport');
 
-//helper function for guard purposes
-
+//function protecting pages that require user to be logged in
 function requireAuth(req, res, next)
 {
-    // chec if user is logged in
+    // check if user is logged in and if not redirect to login page
     if(!req.isAuthenticated())
     {
         return res.redirect('/login');

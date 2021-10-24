@@ -1,3 +1,10 @@
+<!--
+File Name: views/partials/top-nav.ejs
+Student Name: Adrian Dumitriu
+Student ID: 300566849
+Date: October 24, 2021
+-->
+
 <!-- main navigation-->
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -34,11 +41,13 @@
 
           <% if(typeof displayName == 'string' && displayName) { %>
              
-            <li class="navbar-text"><i class="fas fa-large fa-user"></i> Welcome <% displayName %>!</li>
-            <li class="nav-item"><a href="/logout" class="nav-link">
+            <li style="padding-left: 100px" class="navbar-text">
+              <i class="fas fa-2x fa-user"></i> Welcome <%= displayName %>!
+            </li>
+            <li style="padding-left: 25px" class="nav-item"><a href="/logout" class="nav-link">
               <i class="fas fa-2x fa-sign-out-alt"></i> Logout</a></li>
           <% } else { %>
-            <li class="nav-item"><a href="login" class="nav-link">
+            <li style="padding-left: 100px" class="nav-item"><a href="login" class="nav-link">
               <i class="fas fa-2x fa-sign-in-alt"></i> Login</a></li>
           <% } %>
   </nav>

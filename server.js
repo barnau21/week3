@@ -1,8 +1,13 @@
 #!/usr/bin/env node
 
-/**
- * Module dependencies.
- */
+/*
+File Name: server.js
+Student Name: Adrian Dumitriu
+Student ID: 300566849
+Date: October 24, 2021
+
+ Module dependencies.
+*/
 
 var app = require('./server/config/app');
 var debug = require('debug')('comp229:server');

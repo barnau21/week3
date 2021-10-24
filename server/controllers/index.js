@@ -1,11 +1,24 @@
+/*  
+File Name: controllers/index.js
+Student Name: Adrian Dumitriu
+Student ID: 300566849
+Date: October 24, 2021
+*/
+
 let express = require('express');
 let router = express.Router();
 let mongoose = require("mongoose");
 let passport = require('passport');
 
+// enable jwt
+let jwt = require('jsonwebtoken');
+let DB = require('../config/db');
+
 //define user model instance
 let userModel = require('../models/user');
 let User = userModel.User //alias
+
+
 module.exports.displayHomePage = (req, res, next) => {
     res.render('index', {title: 'Home', displayName: req.user ? req.user.displayName: ''});
 }
@@ -27,13 +40,13 @@ module.exports.displayContactPage = (req, res, next) => {
 }
 
 module.exports.displayLoginPage = (req, res, next)=>{
-    //verify is user is already logged in
+    //verify if user is already logged in
     if(!req.user)
     {
         res.render('auth/login',
         {
             title: 'Login',
-            message: req.flash('loginMessage'),
+            messages: req.flash('loginMessage'),
             displayName: req.user ? req.user.displayName : ''
         })
     }
@@ -57,12 +70,25 @@ module.exports.processLoginPage = (req, res, next) => {
             req.flash('loginMessage', 'Authentication Error');
             return res.redirect('/login');
         }
-        req.loging(user, (err) => {
+        req.login(user, (err) => {
             //check for server error again
             if(err)
             {
                return next(err); 
             }
+
+            const payload = 
+            {
+                id: user._id,
+                displayName: user.displayName,
+                username: user.username,
+                email: user.email
+            }
+
+            const authToken = jwt.sign(payload, DB.Secret, {
+                expiresIn: 604800 // 1 week
+            });
+
             return res.redirect('/contact-list');
         });
     })(req, res, next);
@@ -93,10 +119,10 @@ module.exports.processRegisterPage = (req, res, next) => {
         displayName: req.body.displayName
     });
 
-    User.register(newUser, req.body.pasword, (err) => {
+    User.register(newUser, req.body.password, (err) => {
         if(err)
         {
-            console.log("error adding new user")
+            console.log("Error: Inserting New User")
             if(err.name == 'UserExistsError')
             {
                 req.flash(
@@ -105,7 +131,8 @@ module.exports.processRegisterPage = (req, res, next) => {
                 );
                 console.log('Error: User Already Exists!')
             }
-            return res.render('auth/register', {
+            return res.render('auth/register', 
+            {
                 title: 'Register',
                 messages: req.flash('registerMessage'),
                 displayName: req.user ? req.user.displayName : ''
@@ -120,7 +147,7 @@ module.exports.processRegisterPage = (req, res, next) => {
                 res.redirect('/contact-list')
             });
         }
-    })
+    });
 }
 
 module.exports.performLogout = (req, res, next) => {

@@ -1,6 +1,14 @@
+/*  
+File Name: controllers/contact.js
+Student Name: Adrian Dumitriu
+Student ID: 300566849
+Date: October 24, 2021
+*/
+
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
+let jwt = require('jsonwebtoken');
 
 // create a reference to the model
 let Contact = require('../models/contact');
@@ -20,7 +28,7 @@ module.exports.displayContactList = (req, res, next) => {
             ContactList: contactList, 
             displayName: req.user ? req.user.displayName: ''});      
         }
-    });
+    }).sort({name:1});
 }
 
 module.exports.displayAddPage = (req, res, next) => {
